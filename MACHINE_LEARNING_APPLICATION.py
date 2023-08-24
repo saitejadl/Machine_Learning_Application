@@ -279,54 +279,54 @@ def o_hot_enc(OHE_cols):
   Va_OHE=pd.DataFrame(Va_OHE,columns=OHE_cols)
   return [Tr_OHE,Va_OHE]
 
-
-with st.form(key='preprocessing selector'):
-  d1,d2,d3 = st.columns(3)
-  with d1:
-    for_num = st.multiselect('Scaler',['Standard','Minmax','Robust'],max_selections=2)
-  with d2:
-    for_cat = st.multiselect('Encoding',['Dummification','OneHotEnc','TargetMeanEnc','FrequencyEnc','A_LabelEnc'],max_selections=2)
-  with d3:
-    for_tar = st.multiselect('Target Encoding',['T_LabelEnc','BinaryEnc','OrdinalEnc'],max_selections=1)
-  if st.form_submit_button(label = 'Preprocess', use_container_width=False):
-    st.success('DONE')
-st.markdown('#')
-
-with st.form(key='preprocessing cols selector'):
-  t1,t2,t3 = st.columns(3)
-  with t1:
-    if 'Standard' in for_num:
-      std = st.multiselect('Stand-- cols',X.columns)
-    if 'Minmax' in for_num:
-      minmax = st.multiselect('MinMax-- cols',X.columns)
-    if 'Robust' in for_num:
-      Robust = st.multiselect('Robust-- cols',X.columns)
-      
-  with t2:
-    if 'Dummification' in for_cat:
-      dumm = st.multiselect('Dumm-- cols',X.columns)
-    if 'OneHotEnc' in for_cat:
-      OHE_cols = st.multiselect('OneHot-- cols',X.columns)
-    if 'TargetMeanEnc' in for_cat:
-      TarMeaEnc = st.multiselect('TargetMean-- cols',X.columns)
-    if 'FrequencyEnc' in for_cat:
-      freqEnc = st.multiselect('Frequency-- cols',X.columns)
-    if 'A_LabelEnc' in for_cat:
-      TarMeaEnc = st.multiselect('A_Label-- cols',X.columns)
-
-  with t3:
-    if 'T_LabelEnc' in for_tar:
-      enc = st.multiselect('T_Label- cols',y.columns)
-    if 'BinaryEnc' in for_tar:
-      BinEnc = st.multiselect('Binary- cols',y.columns)
-    if 'OrdinalEnc' in for_tar:
-      OrdEnc = st.multiselect('Ordinal- cols',y.columns)
-  if st.form_submit_button(label = 'DO', use_container_width=False):
-    tr_std,va_std = stnd(std)
-    tr_mi_ma,va_mi_ma = mi_ma(X_train[minmax])
-    tr_robu,va_robu = robu(X_train[Robust])
-    tr_dmfc,va_dmfc = dmfc(dumm)
-    tr_OHE,va_OHE =o_hot_enc(OHE_cols)
+if train.empty!=True:
+    with st.form(key='preprocessing selector'):
+      d1,d2,d3 = st.columns(3)
+      with d1:
+        for_num = st.multiselect('Scaler',['Standard','Minmax','Robust'],max_selections=2)
+      with d2:
+        for_cat = st.multiselect('Encoding',['Dummification','OneHotEnc','TargetMeanEnc','FrequencyEnc','A_LabelEnc'],max_selections=2)
+      with d3:
+        for_tar = st.multiselect('Target Encoding',['T_LabelEnc','BinaryEnc','OrdinalEnc'],max_selections=1)
+      if st.form_submit_button(label = 'Preprocess', use_container_width=False):
+        st.success('DONE')
+    st.markdown('#')
+    
+    with st.form(key='preprocessing cols selector'):
+      t1,t2,t3 = st.columns(3)
+      with t1:
+        if 'Standard' in for_num:
+          std = st.multiselect('Stand-- cols',X.columns)
+        if 'Minmax' in for_num:
+          minmax = st.multiselect('MinMax-- cols',X.columns)
+        if 'Robust' in for_num:
+          Robust = st.multiselect('Robust-- cols',X.columns)
+          
+      with t2:
+        if 'Dummification' in for_cat:
+          dumm = st.multiselect('Dumm-- cols',X.columns)
+        if 'OneHotEnc' in for_cat:
+          OHE_cols = st.multiselect('OneHot-- cols',X.columns)
+        if 'TargetMeanEnc' in for_cat:
+          TarMeaEnc = st.multiselect('TargetMean-- cols',X.columns)
+        if 'FrequencyEnc' in for_cat:
+          freqEnc = st.multiselect('Frequency-- cols',X.columns)
+        if 'A_LabelEnc' in for_cat:
+          TarMeaEnc = st.multiselect('A_Label-- cols',X.columns)
+    
+      with t3:
+        if 'T_LabelEnc' in for_tar:
+          enc = st.multiselect('T_Label- cols',y.columns)
+        if 'BinaryEnc' in for_tar:
+          BinEnc = st.multiselect('Binary- cols',y.columns)
+        if 'OrdinalEnc' in for_tar:
+          OrdEnc = st.multiselect('Ordinal- cols',y.columns)
+      if st.form_submit_button(label = 'DO', use_container_width=False):
+        tr_std,va_std = stnd(std)
+        tr_mi_ma,va_mi_ma = mi_ma(X_train[minmax])
+        tr_robu,va_robu = robu(X_train[Robust])
+        tr_dmfc,va_dmfc = dmfc(dumm)
+        tr_OHE,va_OHE =o_hot_enc(OHE_cols)
 
 
 # def prepro(val1=None,val2=None,val3=None):
