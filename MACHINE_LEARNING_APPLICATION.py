@@ -183,7 +183,7 @@ for uploaded_file in uploaded_files:
       st.dataframe(train, use_container_width=True)
 
 # @st.cache_resource()#suppress_st_warning=True)
-def selection():
+def selection(train):
   cols = train.columns
   cat_opt = st.multiselect('What are your categorical columns',cols)
   num_opt = st.multiselect('What are your numerical columns',[x for x in cols if x not in cat_opt])
@@ -194,7 +194,7 @@ def selection():
     st.dataframe(stats(train), use_container_width=True)
     st.dataframe(null_unique(train), use_container_width=True)
 if train.empty!=True:
-    selection()
+    selection(train)
 #______________________________________________________________search bar setup_____________________________________________________________
 st.markdown('#')
 search=st.text_input("",placeholder='FILE:query')
