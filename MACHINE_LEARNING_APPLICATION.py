@@ -155,7 +155,7 @@ train=pd.DataFrame()
 test=pd.DataFrame()
 subm=pd.DataFrame()
 
-@st.cache_resource()
+# @st.cache_resource()
 def read_file(file_name,enc=None):
   df = pd.read_csv(uploaded_file, encoding=enc)
   return df
@@ -182,7 +182,7 @@ for uploaded_file in uploaded_files:
       train = read_file(uploaded_file)
       st.dataframe(train, use_container_width=True)
 
-@st.cache_resource()#suppress_st_warning=True)
+# @st.cache_resource()#suppress_st_warning=True)
 def selection():
   cols = train.columns
   cat_opt = st.multiselect('What are your categorical columns',cols)
@@ -197,7 +197,7 @@ selection()
 #______________________________________________________________search bar setup_____________________________________________________________
 st.markdown('#')
 search=st.text_input("",placeholder='FILE:query')
-@st.cache_resource()
+# @st.cache_resource()
 def query(search):
   try:
     sea,rch = tuple(search.split(':'))
