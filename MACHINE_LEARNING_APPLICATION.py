@@ -15,19 +15,19 @@ import numpy as np
 # import seaborn as sns
 
 # ------------------- Imputation techniques -------------------
-# from sklearn.impute import SimpleImputer
+from sklearn.impute import SimpleImputer
 # from sklearn.impute import IterativeImputer
 # from sklearn.impute import KNNImputer
 
 # ------------------- standradization techniques -------------------
-# from sklearn.preprocessing import StandardScaler
-# from sklearn.preprocessing import MinMaxScaler
-# from sklearn.preprocessing import RobustScaler
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import RobustScaler
 
 # ------------------- Encoding Techniques -------------------
-# from sklearn.preprocessing import LabelEncoder
-# from sklearn.preprocessing import OrdinalEncoder
-# from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import OrdinalEncoder
+from sklearn.preprocessing import OneHotEncoder
 
 # ------------------- Train Test split, Evaluation -------------------
 from sklearn.model_selection import train_test_split
