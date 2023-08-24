@@ -11,8 +11,8 @@ import time
 # ------------------- Manipulation of data -------------------
 import pandas as pd
 import numpy as np
-# import matplotlib.pyplot as plt
-# import seaborn as sns
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # ------------------- Imputation techniques -------------------
 from sklearn.impute import SimpleImputer
@@ -182,7 +182,7 @@ for uploaded_file in uploaded_files:
       train = read_file(uploaded_file)
       st.dataframe(train, use_container_width=True)
 
-@st.cache_resource(suppress_st_warning=True)
+@st.cache_resource()#suppress_st_warning=True)
 def selection():
   cols = train.columns
   cat_opt = st.multiselect('What are your categorical columns',cols)
