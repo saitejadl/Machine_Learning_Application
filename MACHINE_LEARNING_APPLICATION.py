@@ -193,7 +193,8 @@ def selection():
     type_cast(train, cat = cat_opt, num = num_opt)
     st.dataframe(stats(train), use_container_width=True)
     st.dataframe(null_unique(train), use_container_width=True)
-selection()
+if train.empty!=True:
+    selection()
 #______________________________________________________________search bar setup_____________________________________________________________
 st.markdown('#')
 search=st.text_input("",placeholder='FILE:query')
