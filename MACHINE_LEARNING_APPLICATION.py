@@ -11,8 +11,8 @@ import time
 # ------------------- Manipulation of data -------------------
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+# import matplotlib.pyplot as plt
+# import seaborn as sns
 
 # ------------------- Imputation techniques -------------------
 from sklearn.impute import SimpleImputer
