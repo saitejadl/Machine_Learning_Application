@@ -15,9 +15,9 @@ import numpy as np
 # import seaborn as sns
 
 # ------------------- Imputation techniques -------------------
-from sklearn.impute import SimpleImputer
+# from sklearn.impute import SimpleImputer
 # from sklearn.impute import IterativeImputer
-from sklearn.impute import KNNImputer
+# from sklearn.impute import KNNImputer
 
 # ------------------- standradization techniques -------------------
 from sklearn.preprocessing import StandardScaler
